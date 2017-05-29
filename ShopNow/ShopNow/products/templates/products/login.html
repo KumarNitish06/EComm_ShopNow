@@ -1,0 +1,31 @@
+{% extends "products/header.html" %}
+{% load crispy_forms_tags %}
+
+{% block name %}
+<p id='c' style="display:inline"><p>
+<script>
+	var name = sessionStorage.getItem('Name');
+	document.getElementById('c').innerHTML = name;
+	</script>
+{% endblock %}
+
+
+{% block content %}
+<center><h1>LOGIN</h1></center>
+<br>
+<div class = "row">
+<div class = "col-sm-4 col-sm-offset-4">
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method='POST' action=''> {% csrf_token %}
+{{ form|crispy }}
+<input type='submit' value='Login' class = 'btn btn-default' />
+</form>
+<center>
+<a href="http://127.0.0.1:8000/signUp/">No Account yet? Create New Account</a></center>
+</div></div>
+
+{% endblock %}

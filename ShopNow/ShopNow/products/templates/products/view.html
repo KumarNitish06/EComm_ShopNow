@@ -1,0 +1,12 @@
+{% extends "products/header.html" %}
+
+{% block content %}
+
+{% for item in cart.cartitem_set.all %}
+
+
+{{ item.product }} {{ item.product.Price_A }}
+
+<a href='{% url "remove_from_cart" item.id %}'>Remove</a>
+{% endfor %}
+{% endblock %}

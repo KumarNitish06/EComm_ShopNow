@@ -1,0 +1,76 @@
+{% extends "products/header.html" %}
+
+{% block name %}
+<p id='c' style="display:inline"><p>
+<script>
+	var name = sessionStorage.getItem('Name');
+	document.getElementById('c').innerHTML = name;
+	</script>
+{% endblock %}
+
+	
+{% block content %}
+
+
+
+ <div class="container-fluid">    
+  <div class="row">
+    <div class="col-sm-2 well">
+     <div class="vertical-menu">
+  <a id='home' href="/home">Logout</a>
+  <a id='home2' href="/loggedin"  class="active">Home</a>
+  <a href="/mobile">Mobiles</a>
+  <a href="/laptops">Laptops</a>
+  <a href="/sports">Sports</a>
+  <a href="/fashion">Fashion</a>
+  <a href="/electronics">Electronics</a>
+  
+</div>
+    </div>
+	
+	<div>	
+	
+    <center>
+    <div class="col-sm-9">
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-danger">
+        <div class="panel-heading">SPECIAL DEAL</div>
+        <div class="panel-body"><a href="/details/?p=Whirpool%20Refrigerator"><img style="width:110px;height:160px;" src="http://ecx.images-amazon.com/images/I/71HZzXDKicL._SL1500_.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
+        <div class="panel-footer">Whirlpool Refrigerator</div>
+      </div>
+    </div>
+    <div class="col-sm-6"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">SPECIAL DEAL</div>
+        <div class="panel-body"><a href="/details/?p=ManQ+Slim+Fit+Formal"><img style="width:110px;height:160px;" src="http://ecx.images-amazon.com/images/I/41nPyFoWCaL.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
+        <div class="panel-footer">ManQ Slim Fit Formal</div>
+      </div>
+    </div>
+  </div>
+<br>
+   
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">AMAZING THURSDAY DEAL</div>
+        <div class="panel-body"><a href="/details/?p=Dell+Inspiron"><img style="width:110px;height:160px;" src="http://ecx.images-amazon.com/images/I/41k5rlzMBFL.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
+        <div class="panel-footer">Dell Inspiron</div>
+      </div>
+    </div>
+   
+    <div class="col-sm-6"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">AMAZING THURSDAY DEAL</div>
+        <div class="panel-body"><a href="/details/?p=Apple+MacBook+Air"><img style="width:110px;height:160px;" src="http://ecx.images-amazon.com/images/I/41GPeBcssaL.jpg" class="img-responsive" style="width:100%" height = 200px width = 200px alt="Image"></a></div>
+        <div class="panel-footer">Apple MacBook Air</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</center>
+
+
+
+{% endblock %}

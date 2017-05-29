@@ -1,0 +1,109 @@
+{% extends "products/header.html" %}
+
+{% block name %}
+{{ Name }}
+{% endblock %}
+	
+{% block content %}
+
+
+
+ <div class="container-fluid">    
+  <div class="row">
+    <div class="col-sm-2 well">
+     <div class="vertical-menu">
+  <a id='home' href="/home" class="active">Home</a>
+  <a id='home2' href="/loggedin">Home</a>
+  <a href="/mobile">Mobiles</a>
+  <a href="/laptops">Laptops</a>
+  <a href="/sports">Sports</a>
+  <a href="/fashion">Fashion</a>
+  <a href="/electronics">Electronics</a>
+  
+</div>
+    </div>
+
+	<div>
+
+<script>
+
+	sessionStorage.setItem('Name', '{{Name}}');
+	sessionStorage.setItem('Email', '{{Email}}');
+	sessionStorage.setItem('Address', '{{Address}}');
+	sessionStorage.setItem('Contact', '{{Contact}}');
+	sessionStorage.setItem('Pincode', '{{PinCode}}');
+	sessionStorage.setItem('State', '{{State}}');
+	
+	var name = sessionStorage.getItem('Name');
+	
+	if(name == 'Login/SignUp')
+	{
+	document.getElementById('home2').style.display = 'none';
+	}
+	else
+	{
+		
+		document.getElementById('home2').style.display = 'block';
+		document.getElementById('home').innerHTML = 'Logout';
+		document.getElementById("home2").style.color = "#fff";
+		document.getElementById("home").style.color = "#000";
+		document.getElementById("home").style.backgroundColor = "#fff";
+		document.getElementById("home2").style.backgroundColor = "#4BB051";		
+	}
+	</script>
+	
+<script>
+
+
+</script>	
+	<center>
+    <div class="col-sm-9">
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-danger">
+        <div class="panel-heading">SPECIAL DEAL</div>
+        <div class="panel-body"><a href="/details/?p=Whirpool%20Refrigerator"><img style="width:110px;height:160px;" src="http://ecx.images-amazon.com/images/I/71HZzXDKicL._SL1500_.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
+        <div class="panel-footer">Whirlpool Refrigerator</div>
+      </div>
+    </div>
+    <div class="col-sm-6"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">SPECIAL DEAL</div>
+        <div class="panel-body"><a href="/details/?p=ManQ+Slim+Fit+Formal"><img style="width:110px;height:160px;" src="http://ecx.images-amazon.com/images/I/41nPyFoWCaL.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
+        <div class="panel-footer">ManQ Slim Fit Formal</div>
+      </div>
+    </div>
+  </div>
+<br>
+   
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">AMAZING THURSDAY DEAL</div>
+        <div class="panel-body"><a href="/details/?p=Dell+Inspiron"><img style="width:110px;height:160px;" src="http://ecx.images-amazon.com/images/I/41k5rlzMBFL.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
+        <div class="panel-footer">Dell Inspiron</div>
+      </div>
+    </div>
+   
+    <div class="col-sm-6"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">AMAZING THURSDAY DEAL</div>
+        <div class="panel-body"><a href="/details/?p=Apple+MacBook+Air"><img style="width:110px;height:160px;" src="http://ecx.images-amazon.com/images/I/41GPeBcssaL.jpg" class="img-responsive" style="width:100%" height = 200px width = 200px alt="Image"></a></div>
+        <div class="panel-footer">Apple MacBook Air</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div></div>
+<br><br>
+</center>
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright</p>  
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+    <button type="button" class="btn btn-danger">Sign Up</button>
+  </form>
+</footer>
+
+
+{% endblock %}

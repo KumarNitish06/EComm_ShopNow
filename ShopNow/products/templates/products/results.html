@@ -1,0 +1,36 @@
+{% extends "products/header.html" %}
+
+{% block name %}
+<p id='c' style="display:inline"><p>
+<script>
+	var name = sessionStorage.getItem('Name');
+	document.getElementById('c').innerHTML = name;
+	
+	</script>
+{% endblock %}
+
+
+{% block content %}
+<div style='padding:50px'>
+<h1>Searched for: {{ query }}</h1>
+
+{% for product in products %}
+<h2>{{product.category}}</h2>
+<img src="{{product.image}}" style="float:left;width:180px;height:300px;margin:30px;" > {{product.details|safe}}
+<center><p style='margin:50px'><a  id='ma' href="/buynow/?p={{query}}&" class="btn btn-info" >Buy {{query}} at Rs. {{product.Price_A}}</a></p></center>
+
+<script>
+
+var email = sessionStorage.getItem('Email');
+
+var url = '/buynow/?p={{product.pname}}&r=' + email;
+document.getElementById('ma').href = url;
+</script>
+{% endfor %}
+
+</div>
+</body>
+</html>
+
+
+{% endblock %}

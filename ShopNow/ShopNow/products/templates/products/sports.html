@@ -1,0 +1,68 @@
+{% extends "products/header.html" %}
+
+{% block name %}
+<p id='c' style="display:inline"><p>
+<script>
+	var name = sessionStorage.getItem('Name');
+	document.getElementById('c').innerHTML = name;
+	</script>
+{% endblock %}
+
+
+{% block content %}
+
+ <div class="container-fluid">    
+  <div class="row">
+    <div class="col-sm-2 well">
+     <div class="vertical-menu">
+   <a id="home" href="/home" >Home</a>
+  <a id="home2" href="/loggedin">Home</a>
+ <a href="/mobile" >Mobiles</a>
+  <a href="/laptops">Laptops</a>
+  <a href="/sports" class="active">Sports</a>
+  <a href="/fashion">Fashion</a>
+  <a href="/electronics">Electronics</a>
+</div>
+    </div>
+
+<script>
+	var name = sessionStorage.getItem('Name');
+	
+	if(name == 'Login/SignUp')
+	{
+	document.getElementById('home2').style.display = 'none';
+		
+	}
+	else
+	{
+		document.getElementById('home2').style.display = 'block';
+		document.getElementById('home').innerHTML = 'Logout';
+			
+}
+</script>
+
+<div>
+    <div class="col-sm-9">
+      <div class="row">
+{% for product in products %}
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading" align="center">{{product.pname}}</div>
+        <div class="panel-body"><center>
+<a href="/details/?p={{product.pname}}"><img src="{{product.image}}"style="width:110px;height:160px;"alt="Image"></a></center></div>
+        <div class="panel-footer">Price:{{product.Price_A}}<br>
+</div>
+	<center><a href="/details/?p={{product.pname}}" class="btn btn-info" >Buy</a></center>
+<center><form class='form' method='POST' action='{% url "add_to_cart" product.id %}'> {% csrf_token %}
+			 	 <input class='btn btn-default btn-block' type='submit' value='Add to cart'/></form>
+</center>
+  </div>
+  </div>
+{% endfor %}
+</div>
+
+</body>
+</html>
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "products/header.html" %}
+{% block name %}
+<p id='c' style="display:inline"><p>
+<script>
+	var name = sessionStorage.getItem('Name');
+	document.getElementById('c').innerHTML = name;
+	
+	</script>
+{% endblock %}
+{% block content %}
+
+{% for item in cart %}
+<div style="color:black;padding:20px;">
+<img src="{{item.product.image}}" style="float:left;width:90px;height:150px;" >
+<h2>Product name:{{ item.product }}</h2>
+<br><h4> <b>Price:</b>{{ item.product.Price_A }}</h4>
+<br>
+<pre>
+<a href='{% url "remove_from_cart" item.id %}' class="btn btn-info" >Remove</a>    <a  id='{{item.product.pname}}' href="/buynow/?p={{item.product.pname}}&" class="btn btn-info" >Buy </a>
+</pre>
+<script>
+
+
+var email = sessionStorage.getItem('Email');
+var url = '/buynow/?p={{item.product.pname}}&r=' + email;
+document.getElementById('{{item.product.pname}}').href = url;
+</script></div>
+<br><br>
+{% endfor %}
+<div style="color:black;padding:20px;">
+<h3><b>Total price:{{cart.total}}</b></h3>
+
+
+{% endblock %}
